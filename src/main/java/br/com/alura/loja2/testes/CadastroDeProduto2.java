@@ -30,6 +30,9 @@ public class CadastroDeProduto2 {
 		celulares = em.merge(celulares);
 		celulares.setNome("1234");
 		em.flush();
+		//em.clear();
+		em.remove(celulares);
+		em.flush();
 		
 		//em.getTransaction().commit();
 		//em.close();		
