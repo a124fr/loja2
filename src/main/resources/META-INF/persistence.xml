@@ -12,6 +12,12 @@
 			<property name="javax.persistence.jdbc.password" value=""/>
 			
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+			<!-- 
+				hibernate.hbm2ddl.auto -> Gera os comandos sql para criar o banco. 
+				 create -> 	Toda vez que criar o EntityManagerFactory o hibernate cria o banco, apaga o banco assim que iniciar a aplicação.
+				 create-drop -> Cria o banco quando terminar a executação da aplicação drop o banco.
+				 update ->  Cria o banco caso não exista e se existir faz as mudança. obs: caso seja alterado a entity não altera o banco.
+			-->
 			<property name="hibernate.hbm2ddl.auto" value="update"/>
       		<property name="hibernate.show_sql" value="true"/>
       		<property name="hibernate.format_sql" value="true"/>
