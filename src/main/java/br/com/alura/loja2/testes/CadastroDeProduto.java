@@ -17,10 +17,14 @@ public class CadastroDeProduto {
 		celular.setDescricao("Muito legal");
 		celular.setPreco(new BigDecimal("800"));
 		
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("loja2");
+		EntityManagerFactory factory = Persistence
+				.createEntityManagerFactory("loja2");
+		
 		EntityManager em  = factory.createEntityManager();
 		
-		
-		
+		em.getTransaction().begin();
+		em.persist(celular);
+		em.getTransaction().commit();
+		em.close();		
 	}
 }
