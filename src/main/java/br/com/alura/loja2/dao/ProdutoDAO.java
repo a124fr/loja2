@@ -34,6 +34,13 @@ public class ProdutoDAO {
 				.getResultList();
 	}
 	
+	public List<Produto> buscarPorNomeDaCategoria(String nome) {
+		String jpql = "SELECT p FROM Produto p WHERE p.categoria.nome = :nome";
+		return this.em.createQuery(jpql,Produto.class)
+				.setParameter("nome", nome)
+				.getResultList();
+	}
+	
 	/*
 	// Trabalhando com posição com paramentro na jpql.
 	public List<Produto> buscarPorNome(String nome) {
