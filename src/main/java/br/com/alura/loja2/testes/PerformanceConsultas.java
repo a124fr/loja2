@@ -21,11 +21,15 @@ public class PerformanceConsultas {
 		popularBancoDeDados();
 		EntityManager em = JPAUtil.getEntityManager();
 		
-		Pedido pedido = em.find(Pedido.class, 1l);
+//		Pedido pedido = em.find(Pedido.class, 1l);
+		PedidoDAO pedidoDAO = new PedidoDAO(em); 
+		Pedido pedido = pedidoDAO.buscarPedidoComCliente(1l);
+		
 		System.out.println(pedido.getData());
 		System.out.println(pedido.getItens().size());
 		
-				
+		em.close(); /* teste para caso onde não temos os controle de quando o entitymanager esteja fechado.*/
+		System.out.println(pedido.getCliente().getNome());		
 	}
 	
 	private static void popularBancoDeDados() {
