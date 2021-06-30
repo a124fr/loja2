@@ -4,12 +4,11 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import br.com.alura.loja2.dao.CategoriaDAO;
 import br.com.alura.loja2.dao.ProdutoDAO;
 import br.com.alura.loja2.modelo.Categoria;
+import br.com.alura.loja2.modelo.CategoriaId;
 import br.com.alura.loja2.modelo.Produto;
 import br.com.alura.loja2.util.JPAUtil;
 
@@ -45,6 +44,8 @@ public class CadastroDeProduto {
 		
 		cDAO.cadastrar(celulares);
 		pDAO.cadastrar(celular);
+		
+		em.find(Categoria.class, new CategoriaId("CELULARES", "XPTO"));
 		
 		em.getTransaction().commit();
 		em.close();
