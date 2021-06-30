@@ -1,8 +1,10 @@
 package br.com.alura.loja2.modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "livro")
 public class Livro extends Produto {
 
 	private String autor;
